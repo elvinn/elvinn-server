@@ -1,11 +1,12 @@
 import OauthFactory from './logic/OauthFactory';
 import { OauthType } from './logic/IOauth';
 
-interface OauthEvent {
+export interface OauthEvent {
   type: OauthType;
   code: string;
 }
-exports.main = async function (event: OauthEvent) {
+
+export async function main(event: OauthEvent) {
   const oauth = OauthFactory.getOauth({
     type: event.type,
     code: event.code,
@@ -13,4 +14,4 @@ exports.main = async function (event: OauthEvent) {
 
   const oauthInfo = await oauth.getOauthInfo();
   console.log(oauthInfo);
-};
+}

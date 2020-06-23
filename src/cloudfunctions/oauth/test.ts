@@ -1,3 +1,3 @@
-const { main } = require('./index');
+import { main } from './index';
 
-main({ code: '2ee811d546ce718ca84c', type: 'github' });
+console.log(main);

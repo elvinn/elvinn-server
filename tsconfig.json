@@ -1,12 +1,14 @@
 {
   "compilerOptions": {
     "module": "commonjs",
+    "target": "es2018",
     "lib": ["ES2015", "DOM"],
     "noImplicitAny": true,
     "noEmitOnError": true,
     "removeComments": true,
     "preserveConstEnums": true,
-    "outDir": "./dist"
+    "outDir": "./dist",
+    "rootDir": "./src/"
   },
   "include": [
     "src/**/*",
