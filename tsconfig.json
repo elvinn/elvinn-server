@@ -6,13 +6,13 @@
     "noEmitOnError": true,
     "removeComments": true,
     "preserveConstEnums": true,
-    "outDir": "./functions"
+    "outDir": "./dist"
   },
   "include": [
     "src/**/*",
   ],
   "exclude": [
     "node_modules",
-    "**/*.spec.ts"
+    "**/*.spec.ts",
   ]
 }
