@@ -3,6 +3,8 @@ node_modules
 
 # secret config files
 src/*/*Config.json
+src/**/*/secrets/
+
 
 # local env files
 .env.local
