@@ -1,5 +1,5 @@
 export enum OauthType {
-  Github = 'Github',
+  Github = 'github',
 }
 
 export interface OauthParam {

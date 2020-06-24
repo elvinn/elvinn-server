@@ -1,3 +1,4 @@
 import { main } from './index';
+import { OauthType } from './logic/IOauth';
 
-console.log(main);
+console.log(main({ type: OauthType.Github, code: '123' }));
