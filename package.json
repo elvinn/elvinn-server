@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "init": "gulp init",
     "lint": "eslint --ext ts . --quiet --fix",
     "build": "npm run clean && tsc && gulp postBuild",
     "clean": "rimraf dist/"

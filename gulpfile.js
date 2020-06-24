@@ -11,6 +11,21 @@ function postBuild() {
     .pipe(yarn({ production: true }));
 }
 
+async function init() {
+  const installProject = gulp.src([
+    './package.json',
+    './yarn.lock',
+  ]).pipe(yarn());
+  const installSrc = gulp.src([
+    './src/**/package.json',
+    './src/**/yarn.lock',
+    '!./src/**/node_modules/**/package.json',
+  ]).pipe(yarn());
+
+  return Promise.all([installProject, installSrc]);
+}
+
 module.exports = {
+  init,
   postBuild,
 };
