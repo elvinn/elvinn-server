@@ -1,17 +1,19 @@
-export enum OauthType {
+enum OauthType {
   Github = 'github',
 }
 
-export interface OauthParam {
+interface OauthParam {
   type: OauthType;
   code: string;
 }
 
-export interface OauthInfo {
+interface OauthInfo {
   type: OauthType;
   [propName: string]: any;
 }
 
-export interface IOauth {
+interface IOauth {
   getOauthInfo(): Promise<OauthInfo>;
 }
+
+export { OauthType, OauthParam, OauthInfo, IOauth };

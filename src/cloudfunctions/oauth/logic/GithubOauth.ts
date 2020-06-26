@@ -2,7 +2,7 @@ import axios from 'axios';
 import { IOauth, OauthInfo, OauthType } from './IOauth';
 import { clientId, clientSecret } from '../secrets/github';
 
-export interface UserInfo {
+interface UserInfo {
   id: number;
   loginName: string;
   nickName: string;
@@ -10,9 +10,9 @@ export interface UserInfo {
   avatarUal: string;
 }
 
-export interface GithubOauthInfo extends OauthInfo, UserInfo {}
+interface GithubOauthInfo extends OauthInfo, UserInfo {}
 
-export default class GithubOauth implements IOauth {
+class GithubOauth implements IOauth {
   constructor(private code: string) {}
 
   private async fetchAccessToken() {
@@ -61,3 +61,5 @@ export default class GithubOauth implements IOauth {
     };
   }
 }
+
+export { UserInfo, GithubOauthInfo, GithubOauth };

@@ -1,5 +1,5 @@
 import { OauthType, OauthParam, IOauth } from './IOauth';
-import GithubOauth from './GithubOauth';
+import { GithubOauth } from './GithubOauth';
 
 export default class OauthFactory {
   static getOauth(param: OauthParam): IOauth {
