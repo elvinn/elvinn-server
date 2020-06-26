@@ -7,8 +7,8 @@ function postBuild() {
     './src/**/yarn.lock',
     '!./src/**/node_modules/**/package.json',
   ])
-    .pipe(gulp.dest('dist'))
-    .pipe(yarn({ production: true }));
+    .pipe(gulp.dest('dist'));
+    // .pipe(yarn({ production: true }));
 }
 
 async function init() {
