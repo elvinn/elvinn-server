@@ -9,6 +9,9 @@ interface OauthParam {
 
 interface OauthInfo {
   type: OauthType;
+  loginName: string;
+  nickName: string;
+  avatarUal: string;
   [propName: string]: any;
 }
 

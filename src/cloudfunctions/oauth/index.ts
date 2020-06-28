@@ -14,7 +14,7 @@ async function getUserId(oauthInfo: OauthInfo) {
   const { data: oauthData = [] } = await oauthCollection
     .where({
       type: oauthInfo.type,
-      oauthId: oauthInfo.id,
+      id: oauthInfo.id,
     })
     .get();
 
@@ -40,6 +40,7 @@ async function getUserId(oauthInfo: OauthInfo) {
 
 async function main(event: OauthEvent) {
   console.log('event', event);
+
   const oauth = OauthFactory.getOauth({
     type: event.type,
     code: event.code,
@@ -49,9 +50,16 @@ async function main(event: OauthEvent) {
   console.log('oauthInfo', oauthInfo);
 
   const userId = await getUserId(oauthInfo);
+  console.log('userId', userId);
 
-  console.log('userId');
-  return getTicket(userId);
+  return {
+    ret: 0,
+    data: {
+      ...oauthInfo,
+      userId,
+      ticket: getTicket(userId),
+    },
+  };
 }
 
 export { OauthEvent, main };
