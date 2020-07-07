@@ -46,7 +46,7 @@ class GithubOauth implements IOauth {
     return {
       id,
       loginName,
-      nickName,
+      nickName: nickName || loginName,
       email,
       avatarUal,
     };
