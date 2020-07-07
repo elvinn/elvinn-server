@@ -12,6 +12,7 @@ interface OauthInfo {
   loginName: string;
   nickName: string;
   avatarUal: string;
+  email: string;
   [propName: string]: any;
 }
 
