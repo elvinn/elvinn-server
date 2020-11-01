@@ -2,22 +2,22 @@
 # yarn lockfile v1
 
 
-"@cloudbase/database@1.0.2", "@cloudbase/database@^1.0.2":
-  version "1.0.2"
-  resolved "https://registry.npm.taobao.org/@cloudbase/database/download/@cloudbase/database-1.0.2.tgz#ac044bdcc3c057bfd479cfca11840f09f1cdbe6a"
-  integrity sha1-rARL3MPAV7/Uec/KEYQPCfHNvmo=
+"@cloudbase/database@1.2.2", "@cloudbase/database@^1.2.2":
+  version "1.2.2"
+  resolved "https://registry.yarnpkg.com/@cloudbase/database/-/database-1.2.2.tgz#24cc9310967c27bc1bb8fa24535f490289c8440a"
+  integrity sha512-14GPoD0vdVnfdN+4rHlMmpkxAekFklt4X2gi33iCuoZUDC62p5LWS7OuTjoronnZ4QPsZPCKm+WsjE8mVD+Hmw==
   dependencies:
     bson "^4.0.3"
     lodash.clonedeep "4.5.0"
     lodash.set "4.3.2"
     lodash.unset "4.5.2"
 
-"@cloudbase/node-sdk@^2.1.1":
-  version "2.1.1"
-  resolved "https://registry.npm.taobao.org/@cloudbase/node-sdk/download/@cloudbase/node-sdk-2.1.1.tgz#65e2ed1883845d96a65bff05b8bc9602f89d7dac"
-  integrity sha1-ZeLtGIOEXZamW/8FuLyWAvidfaw=
+"@cloudbase/node-sdk@^2.3.5":
+  version "2.3.5"
+  resolved "https://registry.yarnpkg.com/@cloudbase/node-sdk/-/node-sdk-2.3.5.tgz#1554341c338c41764d112e4992d0b0bc2c935b2f"
+  integrity sha512-pGDr0NMa2oWh1qyfC1/aOUqD//ZfsBtWG5VXnZ/YwECFl15KOL+oy+8nCAOFpTAM4Isr8Xg+MY775ZARoknbEg==
   dependencies:
-    "@cloudbase/database" "1.0.2"
+    "@cloudbase/database" "1.2.2"
     "@cloudbase/signature-nodejs" "1.0.0-beta.0"
     "@types/retry" "^0.12.0"
     is-regex "^1.0.4"

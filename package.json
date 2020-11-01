@@ -1,7 +1,7 @@
 {
   "name": "elvinn-server",
   "version": "1.0.0",
-  "description": "",
+  "description": "https://elvinn.cn/ 相关服务",
   "main": "index.js",
   "scripts": {
     "init": "gulp init",

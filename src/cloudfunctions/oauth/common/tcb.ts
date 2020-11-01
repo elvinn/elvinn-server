@@ -1,6 +1,6 @@
 import tcb from '@cloudbase/node-sdk';
 import { CollectionReference } from '@cloudbase/database';
-import { envId, secretId, secretKey, privateKey, privateKeyId } from '../secrets/tcb';
+import { envId, privateKey, privateKeyId } from '../secrets/tcb';
 
 enum CollectionName {
   UserOauth = 'user-oauth',
@@ -9,8 +9,6 @@ enum CollectionName {
 
 const app = tcb.init({
   env: envId,
-  secretId,
-  secretKey,
   credentials: {
     env_id: envId,
     private_key: privateKey,

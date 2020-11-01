@@ -25,8 +25,9 @@ async function getUserId(oauthInfo: OauthInfo) {
 
   // 新用户
   const { id: userId } = await userCollection.add({
-    name: oauthInfo.nickName,
+    name: oauthInfo.nickName || oauthInfo.loginName,
     avatarUal: oauthInfo.avatarUal,
+    email: oauthInfo.email,
   });
 
   await oauthCollection.add({

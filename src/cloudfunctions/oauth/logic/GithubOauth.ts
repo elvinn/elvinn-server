@@ -34,7 +34,21 @@ class GithubOauth implements IOauth {
   }
 
   private static async fetchUserInfo(accessToken: string): Promise<UserInfo> {
-    const { data: { id, login: loginName, name: nickName, email, avatar_url: avatarUal } = {} } = await axios({
+    const {
+      data: {
+        id,
+        login: loginName,
+        name: nickName,
+        email,
+        avatar_url: avatarUal,
+      } = {
+        id: '',
+        login: '',
+        name: '',
+        email: '',
+        avatar_url: '',
+      },
+    } = await axios({
       method: 'get',
       url: `https://api.github.com/user`,
       headers: {

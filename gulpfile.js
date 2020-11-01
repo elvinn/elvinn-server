@@ -5,10 +5,10 @@ function postBuild() {
   return gulp.src([
     './src/**/package.json',
     './src/**/yarn.lock',
-    '!./src/**/node_modules/**/package.json',
+    '!./src/**/node_modules/**',
   ])
-    .pipe(gulp.dest('dist'));
-    // .pipe(yarn({ production: true }));
+    .pipe(gulp.dest('dist'))
+    .pipe(yarn({ production: true }));
 }
 
 async function init() {
