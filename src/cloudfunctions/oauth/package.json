@@ -13,6 +13,7 @@
     "@cloudbase/database": "^1.2.2",
     "@cloudbase/node-sdk": "^2.3.5",
     "axios": "^0.19.2",
+    "axios-retry": "^3.1.9",
     "uuid": "^8.2.0"
   }
 }

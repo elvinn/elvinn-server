@@ -1,6 +1,9 @@
 import axios from 'axios';
+import axiosRetry from 'axios-retry';
 import { IOauth, OauthInfo, OauthType } from './IOauth';
 import { clientId, clientSecret } from '../secrets/github';
+
+axiosRetry(axios, { retries: 3 });
 
 interface UserInfo {
   id: number;
