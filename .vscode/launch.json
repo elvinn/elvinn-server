@@ -7,6 +7,14 @@
             "name": "[oauth] 云函数本地调试",
             "entry": "oauth",
             "cloudbaseLocal": true
+        },
+        {
+            "type": "node",
+            "request": "attach",
+            "port": 9229,
+            "name": "[memo-store] 云函数本地调试",
+            "entry": "memo-store",
+            "cloudbaseLocal": true
         }
     ]
 }
