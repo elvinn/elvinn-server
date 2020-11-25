@@ -1,12 +1,20 @@
 import { getUserInfo, getCollection, CollectionName } from '../common/tcb';
 import { Memo } from '../types';
 
+interface DBResult {
+  code: string;
+  message: string;
+  id: string;
+}
+
 const memoCollection = getCollection(CollectionName.MemoStore);
+
+async function queryMemoList(pageNum: number) {}
 
 async function addMemo(memo: Memo) {
   const { customUserId } = await getUserInfo();
   console.log('准备添加数据', memo);
-  const { code, message, id } =
+  const { code, message, id = '' }: DBResult =
     (await memoCollection
       .add({
         ...memo,
@@ -69,4 +77,4 @@ async function editMemo(memo: Memo) {
   return { id: memo.id };
 }
 
-export { queryMemo, addMemo, deleteMemo, editMemo };
+export { queryMemoList, addMemo, deleteMemo, editMemo };
