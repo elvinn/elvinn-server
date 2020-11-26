@@ -39,7 +39,9 @@ async function handleListRequest(event: MemoStoreEvent) {
 async function handleItemRequest(event: MemoStoreEvent) {
   const { action, state } = event;
 
-  const actionToFuncMap = {
+  const actionToFuncMap: {
+    [index in StoreAction]?: typeof addMemo;
+  } = {
     [StoreAction.ADD_MEMO]: addMemo,
     [StoreAction.DELETE_MEMO]: deleteMemo,
     [StoreAction.EDIT_MEMO]: editMemo,
