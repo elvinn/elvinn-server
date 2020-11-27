@@ -18,4 +18,12 @@ interface MemoStoreEvent {
   pageNum?: number;
 }
 
-export { StoreAction, Memo, MemoStoreEvent };
+interface ItemFunc {
+  (memo: Memo): Promise<{ id: string }>;
+}
+
+interface ListFunc {
+  (pageNum: number): Promise<{ list: Memo[] }>;
+}
+
+export { StoreAction, Memo, MemoStoreEvent, ItemFunc, ListFunc };

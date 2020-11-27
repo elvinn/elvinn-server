@@ -1,11 +1,13 @@
-import { MemoStoreEvent, StoreAction } from './types';
-import { queryMemoList, addMemo, deleteMemo, editMemo } from './logic';
+import { ListFunc, MemoStoreEvent, StoreAction } from './types';
+import { ItemFunc, queryMemoList, addMemo, deleteMemo, editMemo } from './logic';
 
 // 处理批量请求
 async function handleListRequest(event: MemoStoreEvent) {
   const { action, pageNum } = event;
 
-  const actionToFuncMap = {
+  const actionToFuncMap: {
+    [index in StoreAction]?: ListFunc;
+  } = {
     [StoreAction.QUERY_MEMO_LIST]: queryMemoList,
   };
 
@@ -40,7 +42,7 @@ async function handleItemRequest(event: MemoStoreEvent) {
   const { action, state } = event;
 
   const actionToFuncMap: {
-    [index in StoreAction]?: typeof addMemo;
+    [index in StoreAction]?: ItemFunc;
   } = {
     [StoreAction.ADD_MEMO]: addMemo,
     [StoreAction.DELETE_MEMO]: deleteMemo,

@@ -1,39 +1,39 @@
 import { getUserInfo, getCollection, CollectionName } from '../common/tcb';
-import { Memo } from '../types';
-
-interface DBResult {
-  code: string;
-  message: string;
-  id: string;
-}
+import { Memo, ItemFunc, ListFunc } from '../types';
 
 const memoCollection = getCollection(CollectionName.MemoStore);
 
-async function queryMemoList(pageNum: number) {}
+const queryMemoList: ListFunc = async (pageNum: number) => {
+  return null;
+};
 
-async function addMemo(memo: Memo) {
+const addMemo: ItemFunc = async (memo: Memo) => {
   const { customUserId } = await getUserInfo();
   console.log('准备添加数据', memo);
-  const { code, message, id = '' }: DBResult =
-    (await memoCollection
-      .add({
-        ...memo,
-        customUserId,
-      })
-      .catch((e: Error) => {
-        console.error('添加失败', e);
-      })) || {};
+  // const { id } =
+  const res = (await memoCollection
+    .add({
+      ...memo,
+      customUserId,
+    })
+    .catch((e: Error) => {
+      console.error('添加失败', e);
+    })) || { id: '' };
 
-  if (!id || code) {
-    console.error(`添加失败，${code} : ${message}`);
+  console.log('add res', res);
+  const { id } = res;
+
+  if (!id) {
+    console.error(`添加失败`);
+    // console.error(`添加失败，${code} : ${message}`);
     return null;
   }
 
   console.log('添加成功', id);
   return { id };
-}
+};
 
-async function deleteMemo(memo: Memo) {
+const deleteMemo: ItemFunc = async (memo: Memo) => {
   const { customUserId } = await getUserInfo();
   const { code, message } =
     (await memoCollection
@@ -54,9 +54,9 @@ async function deleteMemo(memo: Memo) {
   }
 
   return { id: memo.id };
-}
+};
 
-async function editMemo(memo: Memo) {
+const editMemo: ItemFunc = async (memo: Memo) => {
   const { customUserId } = await getUserInfo();
   const { code, message } =
     (await memoCollection
@@ -75,6 +75,6 @@ async function editMemo(memo: Memo) {
   }
 
   return { id: memo.id };
-}
+};
 
-export { queryMemoList, addMemo, deleteMemo, editMemo };
+export { ItemFunc, queryMemoList, addMemo, deleteMemo, editMemo };
