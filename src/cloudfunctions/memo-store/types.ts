@@ -1,29 +1,23 @@
 enum StoreAction {
+  ADD_MEMO_LIST = 'ADD_MEMO_LIST',
+  EDIT_MEMO_LIST = 'EDIT_MEMO_LIST',
   QUERY_MEMO_LIST = 'QUERY_MEMO_LIST',
-  ADD_MEMO = 'ADD_MEMO',
-  DELETE_MEMO = 'DELETE_MEMO',
-  EDIT_MEMO = 'EDIT_MEMO',
 }
 
 interface Memo {
   id: string;
   text?: string;
-  ts?: number;
+  updateTimestamp?: number;
   isDone?: boolean;
+}
+
+interface Payload {
+  memoList: Memo[];
 }
 
 interface MemoStoreEvent {
   action: StoreAction;
-  state?: Memo;
-  pageNum?: number;
+  payload?: Payload;
 }
 
-interface ItemFunc {
-  (memo: Memo): Promise<{ id: string }>;
-}
-
-interface ListFunc {
-  (pageNum: number): Promise<{ list: Memo[] }>;
-}
-
-export { StoreAction, Memo, MemoStoreEvent, ItemFunc, ListFunc };
+export { StoreAction, Memo, Payload, MemoStoreEvent };
