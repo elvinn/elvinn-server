@@ -1,28 +1,18 @@
 const gulp = require('gulp');
-const yarn = require('gulp-yarn');
+const { installSubDir } = require('./src/scripts/install');
 
-function postBuild() {
-  return gulp.src([
-    './src/**/package.json',
-    './src/**/yarn.lock',
-    '!./src/**/node_modules/**',
-  ])
-    .pipe(gulp.dest('dist'))
-    .pipe(yarn({ production: true }));
-}
-
-async function init() {
-  const installProject = gulp.src([
-    './package.json',
-    './yarn.lock',
-  ]).pipe(yarn());
-  const installSrc = gulp.src([
+async function postBuild() {
+  await gulp.src([
     './src/**/package.json',
     './src/**/yarn.lock',
     '!./src/**/node_modules/**/package.json',
-  ]).pipe(yarn());
+  ]).pipe(gulp.dest('dist'));
+  
+  return installSubDir('dist/cloudfunctions');
+}
 
-  return Promise.all([installProject, installSrc]);
+async function init() {
+  return installSubDir('src/cloudfunctions');
 }
 
 module.exports = {
