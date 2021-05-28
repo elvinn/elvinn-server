@@ -1,0 +1,22 @@
+{
+  "envId": "elvinn-1aa07a",
+  "functionRoot": "./dist/cloudfunctions",
+  "functions": [
+    {
+      "name": "oauth",
+      "timeout": 20,
+      "runtime": "Nodejs10.15",
+      "memorySize": 128,
+      "handler": "index.main",
+      "installDependency": true
+    },
+    {
+      "name": "memo-store",
+      "timeout": 20,
+      "runtime": "Nodejs10.15",
+      "memorySize": 128,
+      "handler": "index.main",
+      "installDependency": true
+    }
+  ]
+}

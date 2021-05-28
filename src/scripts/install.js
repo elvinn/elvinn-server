@@ -10,7 +10,9 @@ const exec = promisify(require('child_process').exec);
  */
 const installDir = async (aimDir) => {
   const cwd = path.join(process.cwd(), aimDir);
-  const { error, stdout, stderr } = await exec('yarn install --frozen-lockfile', { cwd });
+  const { error, stdout, stderr } = await exec('yarn install --frozen-lockfile', { cwd }).catch((throwError) => {
+    return { error: throwError, stdout: '', stderr: '' };
+  });
 
   const isOk = !error;
   if (isOk) {

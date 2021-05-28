@@ -129,3 +129,7 @@
 - 0: 成功
 - -1: action 值错误
 - -2: 请求失败yar
+
+## 本地调试
+
+1. 批量添加 `tcb fn run --name memo-store --params '{"action":"ADD_MEMO_LIST","payload":{"memoList":[{"id":"xxx","text":"测试1"}]}}'`

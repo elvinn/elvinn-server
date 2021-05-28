@@ -5,8 +5,9 @@ const memoCollection = getCollection(CollectionName.MemoStore);
 
 const addMemoList = async (payload: Payload) => {
   const { memoList } = payload;
-  const { customUserId } = await getUserInfo();
+  const { customUserId = 'test' } = await getUserInfo();
   console.log('准备添加数据', customUserId, memoList);
+
   const dataList = memoList.map((memo) => {
     return {
       customUserId,

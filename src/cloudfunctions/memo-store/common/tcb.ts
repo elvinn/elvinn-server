@@ -24,6 +24,7 @@ const app = tcb.init({
     private_key_id: privateKeyId,
   },
 });
+
 const auth = app.auth();
 const db = app.database();
 
@@ -43,17 +44,8 @@ function getTicket(customUserId: string) {
   return auth.createTicket(customUserId);
 }
 
-
 function getUserInfo(): UserInfo {
   return auth.getUserInfo();
 }
 
-export {
-  app,
-  auth,
-  db,
-  getCollection,
-  getTicket,
-  getUserInfo,
-  CollectionName,
-};
+export { app, auth, db, getCollection, getTicket, getUserInfo, CollectionName };
