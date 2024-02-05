@@ -172,7 +172,7 @@ export default function TicTacToe() {
   };
 
   return (
-    <main className="min-w-96 w-screen h-screen flex flex-col items-center min-h-screen bg-gray-100">
+    <main className="min-w-96 w-screen min-h-screen p-8 flex flex-col items-center bg-gray-100">
       <h1 className="mt-24 mb-8 text-4xl font-bold text-gray-900">井字棋</h1>
       <div className="w-full flex flex-wrap items-center justify-center">
         <Board xIsNext={xIsNext} squares={currentSquares} onPlay={handlePlay} enabled={!isEnd} />
